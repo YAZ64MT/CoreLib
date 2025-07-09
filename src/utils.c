@@ -19,7 +19,7 @@ int Utils_MemCmp(const void *a, const void *b, size_t size) {
 }
 
 char *Utils_StrDup(const char *s) {
-    char *newStr = recomp_alloc(strlen(s));
+    char *newStr = recomp_alloc(strlen(s) + 1);
 
     char *c = newStr;
 
