@@ -28,10 +28,6 @@ void DynU32Arr_resize(DynamicU32Array *dArr, size_t newCapacity) {
 void DynU32Arr_reserve(DynamicU32Array *dArr, size_t minimumCapacity) {
     size_t capacity = dArr->capacity;
     if (minimumCapacity > capacity) {
-        while (capacity < minimumCapacity) {
-            capacity = NEXT_CAPACITY(capacity);
-        }
-
         DynU32Arr_resize(dArr, capacity);
     }
 }
