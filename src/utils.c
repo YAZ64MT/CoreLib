@@ -1,4 +1,6 @@
 #include "utils.h"
+#include "libc/string.h"
+#include "recomputils.h"
 
 int Utils_MemCmp(const void *a, const void *b, size_t size) {
     const char *c = a;
@@ -14,4 +16,20 @@ int Utils_MemCmp(const void *a, const void *b, size_t size) {
     }
 
     return 0;
+}
+
+char *Utils_StrDup(const char *s) {
+    char *newStr = recomp_alloc(strlen(s));
+
+    char *c = newStr;
+
+    while (*s != '\0') {
+        *c = *s;
+        s++;
+        c++;
+    }
+
+    *c = '\0';
+
+    return newStr;
 }

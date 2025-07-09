@@ -14,6 +14,10 @@ RECOMP_EXPORT int YAZMTCore_Utils_MemCmp(void *dest, const void *src, size_t siz
     return Utils_MemCmp(dest, src, size);
 }
 
+RECOMP_EXPORT char *YAZMTCore_Utils_StrDup(const char* s) {
+    return Utils_StrDup(s);
+}
+
 // -----------------------
 // DynimicU32Array Exports
 // -----------------------
