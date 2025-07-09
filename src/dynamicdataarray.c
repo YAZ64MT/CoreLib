@@ -1,6 +1,7 @@
 #include "recomputils.h"
 #include "dynamicdataarray.h"
 #include "utils.h"
+#include "libc/string.h"
 
 #define DEFAULT_CAPACITY 16
 #define NEXT_CAPACITY(current) ((current == 0) ? DEFAULT_CAPACITY : ((current + 1) * 3 / 2))
@@ -22,7 +23,7 @@ void resizeDynDataArr(DynamicDataArray *dArr, size_t newCapacity) {
         }
 
         if (dArr->data) {
-            Utils_MemCpy(newData, dArr->data, min * dArr->elementSize);
+            memcpy(newData, dArr->data, min * dArr->elementSize);
             recomp_free(dArr->data);
         }
 
@@ -93,7 +94,7 @@ bool DynDataArr_set(DynamicDataArray *dArr, size_t index, const void *value) {
         return false;
     }
 
-    Utils_MemCpy(DynDataArr_get(dArr, index), value, dArr->elementSize);
+    memcpy(DynDataArr_get(dArr, index), value, dArr->elementSize);
     return true;
 }
 
@@ -102,7 +103,7 @@ void DynDataArr_push(DynamicDataArray *dArr, void *value) {
         return;
     }
 
-    Utils_MemCpy(DynDataArr_createElement(dArr), value, dArr->elementSize);
+    memcpy(DynDataArr_createElement(dArr), value, dArr->elementSize);
 }
 
 bool DynDataArr_pop(DynamicDataArray *dArr) {
@@ -123,7 +124,7 @@ bool DynDataArr_removeByIndex(DynamicDataArray *dArr, size_t index) {
     u8 *data = dArr->data;
 
     for (size_t i = index + 1; i < dArr->count - 1; ++i) {
-        Utils_MemCpy(DynDataArr_get(dArr, i), DynDataArr_get(dArr, i + 1), dArr->elementSize);
+        memcpy(DynDataArr_get(dArr, i), DynDataArr_get(dArr, i + 1), dArr->elementSize);
     }
 
     dArr->count--;

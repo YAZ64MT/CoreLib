@@ -10,10 +10,6 @@
 // Utility Function Exports
 // ------------------------
 
-RECOMP_EXPORT void YAZMTCore_Utils_MemCpy(void *dest, const void *src, size_t size) {
-    Utils_MemCpy(dest, src, size);
-}
-
 RECOMP_EXPORT int YAZMTCore_Utils_MemCmp(void *dest, const void *src, size_t size) {
     return Utils_MemCmp(dest, src, size);
 }
