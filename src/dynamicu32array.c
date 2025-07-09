@@ -2,7 +2,7 @@
 #include "dynamicu32array.h"
 
 #define DEFAULT_CAPACITY 1
-#define NEXT_CAPACITY(current) ((current == 0) ? DEFAULT_CAPACITY : (current * 3 / 2))
+#define NEXT_CAPACITY(current) ((current == 0) ? DEFAULT_CAPACITY : (current + (current + 1) / 2))
 
 void DynU32Arr_resize(DynamicU32Array *dArr, size_t newCapacity) {
     if (newCapacity > 0) {
