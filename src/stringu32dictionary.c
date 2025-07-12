@@ -45,6 +45,10 @@ void StringU32Dictionary_clear(StringU32Dictionary *dict) {
 }
 
 bool StringU32Dictionary_set(StringU32Dictionary *dict, const char *key, u32 value) {
+    if (!key) {
+        return false;
+    }
+
     size_t keyLen = strlen(key);
 
     u32 hash = hasher(key, keyLen);
@@ -90,6 +94,10 @@ bool StringU32Dictionary_set(StringU32Dictionary *dict, const char *key, u32 val
 }
 
 bool StringU32Dictionary_get(StringU32Dictionary *dict, const char *key, u32 *out) {
+    if (!key) {
+        return false;
+    }
+
     size_t keyLen = strlen(key);
 
     u32 hash = hasher(key, keyLen);
