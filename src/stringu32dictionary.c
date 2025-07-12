@@ -121,6 +121,10 @@ bool StringU32Dictionary_get(StringU32Dictionary *dict, const char *key, u32 *ou
 }
 
 bool StringU32Dictionary_contains(StringU32Dictionary *dict, const char *key) {
+    if (!key) {
+        return false;
+    }
+
     size_t keyLen = strlen(key);
 
     u32 hash = hasher(key, keyLen);
@@ -143,6 +147,10 @@ bool StringU32Dictionary_contains(StringU32Dictionary *dict, const char *key) {
 }
 
 bool StringU32Dictionary_unset(StringU32Dictionary *dict, const char *key) {
+    if (!key) {
+        return false;
+    }
+
     size_t keyLen = strlen(key);
 
     u32 hash = hasher(key, keyLen);
