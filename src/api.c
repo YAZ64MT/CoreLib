@@ -145,7 +145,7 @@ RECOMP_EXPORT bool YAZMTCore_IterableU32Set_contains(IterableU32Set *set, u32 va
     return IterU32Set_contains(set, value);
 }
 
-RECOMP_EXPORT bool YAZMTCore_IterableU32Set_size(IterableU32Set *set) {
+RECOMP_EXPORT size_t YAZMTCore_IterableU32Set_size(IterableU32Set *set) {
     return IterU32Set_count(set);
 }
 
