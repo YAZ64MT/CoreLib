@@ -1,7 +1,7 @@
 #ifndef __YAZMT_CORELIB_API_H__
 #define __YAZMT_CORELIB_API_H__
 
-#include "global.h"
+#include "PR/ultratypes.h"
 #include "modding.h"
 
 #define YAZMT_CORELIB_MOD_NAME "yazmt_mm_corelib"
