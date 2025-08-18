@@ -1,0 +1,9 @@
+{
+    "name": "YAZMT_Core",
+    "version_number": "0.1.1",
+    "website_url": "https://github.com/YAZ64MT/CoreLib",
+    "description": "Common functions and data API for Zelda64: Recompiled mods by YAZMT.",
+    "dependencies": [
+
+    ]
+}
