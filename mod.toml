@@ -56,3 +56,26 @@ data_reference_syms_files = [ "Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "Zel
 
 # Additional files to include in the mod.
 additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "logging_level"
+name = "Console Log Level"
+description = """
+Set the level of console logging.
+
+ALL: Display every logged message
+
+VERBOSE: Display every logged message with priority VERBOSE or above
+
+INFO: Display every logged message with priority INFO or above
+
+WARNING: Display every logged message with priority WARNING or above
+
+ERROR: Display every logged message with priority ERROR or above
+
+NONE: Do not display logged messages from this mod
+
+"""
+type = "Enum"
+options = [ "ALL", "VERBOSE", "INFO", "WARNING", "ERROR", "NONE" ]
+default = "WARNING"
