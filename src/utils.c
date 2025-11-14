@@ -3,12 +3,14 @@
 #include "recomputils.h"
 
 int Utils_MemCmp(const void *a, const void *b, size_t size) {
-    const char *c = a;
-    const char *d = b;
+    const unsigned char *c = a;
+    const unsigned char *d = b;
 
     for (size_t i = 0; i < size; ++i) {
-        if (*c != *d) {
-            return *c - *d;
+        if (*c > *d) {
+            return 1;
+        } else if (*c < *d) {
+            return -1;
         }
 
         c++;
@@ -20,6 +22,10 @@ int Utils_MemCmp(const void *a, const void *b, size_t size) {
 
 char *Utils_StrDup(const char *s) {
     char *newStr = recomp_alloc(strlen(s) + 1);
+
+    if (!newStr) {
+        return NULL;
+    }
 
     char *c = newStr;
 

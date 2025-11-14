@@ -1,9 +1,10 @@
 #ifndef __STRINGU32DICTIONARY_H__
 #define __STRINGU32DICTIONARY_H__
 
+#include "libc/stdbool.h"
 #include "ultra64.h"
 #include "recompdata.h"
-#include "dynamicu32array.h"
+#include "iterableu32set.h"
 
 typedef struct {
     char *key;
@@ -12,11 +13,11 @@ typedef struct {
 
 typedef struct {
     U32MemoryHashmapHandle hashmap;
-    DynamicU32Array keyHashes;
+    IterableU32Set keyHashes;
 } StringU32Dictionary;
 
 // Creates a StringU32Dictionary and returns a handle
-void StringU32Dictionary_init(StringU32Dictionary *dict);
+bool StringU32Dictionary_init(StringU32Dictionary *dict);
 
 // Destroys a StringU32Dictionary's members
 void StringU32Dictionary_destroyMembers(StringU32Dictionary *dict);
@@ -28,12 +29,12 @@ void StringU32Dictionary_clear(StringU32Dictionary *dict);
 bool StringU32Dictionary_set(StringU32Dictionary *dict, const char *key, u32 value);
 
 // Returns true and writes to out if key exists, false and leaves out unmodified otherwise
-bool StringU32Dictionary_get(StringU32Dictionary *dict, const char *key, u32 *out);
+bool StringU32Dictionary_get(const StringU32Dictionary *dict, const char *key, u32 *out);
 
 // Returns true if key existed and was removed, false otherwise
 bool StringU32Dictionary_unset(StringU32Dictionary *dict, const char *key);
 
 // Returns true if key exists in dictionary, false otherwise
-bool StringU32Dictionary_contains(StringU32Dictionary *dict, const char *key);
+bool StringU32Dictionary_contains(const StringU32Dictionary *dict, const char *key);
 
 #endif
