@@ -11,8 +11,8 @@
 // Utility Function Exports
 // ------------------------
 
-RECOMP_EXPORT int YAZMTCore_Utils_MemCmp(void *dest, const void *src, size_t size) {
-    return Utils_MemCmp(dest, src, size);
+RECOMP_EXPORT int YAZMTCore_Utils_MemCmp(const void *a, const void *b, size_t size) {
+    return Utils_MemCmp(a, b, size);
 }
 
 RECOMP_EXPORT char *YAZMTCore_Utils_StrDup(const char* s) {
@@ -91,7 +91,7 @@ RECOMP_EXPORT void YAZMTCore_DynamicU32Array_reserve(DynamicU32Array *d, size_t 
     DynU32Arr_reserve(d, minimum);
 }
 
-RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_data(const DynamicU32Array *d) {
+RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_data(DynamicU32Array *d) {
     return DynU32Arr_data(d);
 }
 
@@ -99,15 +99,15 @@ RECOMP_EXPORT size_t YAZMTCore_DynamicU32Array_size(const DynamicU32Array *d) {
     return DynU32Arr_size(d);
 }
 
-RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_front(const DynamicU32Array *d) {
+RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_front(DynamicU32Array *d) {
     return DynU32Arr_front(d);
 }
 
-RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_back(const DynamicU32Array *d) {
+RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_back(DynamicU32Array *d) {
     return DynU32Arr_back(d);
 }
 
-RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_end(const DynamicU32Array *d) {
+RECOMP_EXPORT u32 *YAZMTCore_DynamicU32Array_end(DynamicU32Array *d) {
     return DynU32Arr_end(d);
 }
 
@@ -164,7 +164,7 @@ RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_createElement(DynamicDataArray *d
     return DynDataArr_createElement(d);
 }
 
-RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_getElement(const DynamicDataArray *d, size_t i) {
+RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_getElement(DynamicDataArray *d, size_t i) {
     return DynDataArr_get(d, i);
 }
 
@@ -188,15 +188,15 @@ RECOMP_EXPORT size_t YAZMTCore_DynamicDataArray_size(const DynamicDataArray *d) 
     return DynDataArr_size(d);
 }
 
-RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_first(const DynamicDataArray *d) {
+RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_first(DynamicDataArray *d) {
     return DynDataArr_first(d);
 }
 
-RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_last(const DynamicDataArray *d) {
+RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_last(DynamicDataArray *d) {
     return DynDataArr_last(d);
 }
 
-RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_end(const DynamicDataArray *d) {
+RECOMP_EXPORT void *YAZMTCore_DynamicDataArray_end(DynamicDataArray *d) {
     return DynDataArr_end(d);
 }
 

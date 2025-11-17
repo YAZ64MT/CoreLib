@@ -21,7 +21,7 @@ void DynDataArr_destroyMembers(DynamicDataArray *dArr);
 
 void *DynDataArr_createElement(DynamicDataArray *dArr);
 
-void *DynDataArr_get(const DynamicDataArray *dArr, size_t index);
+void *DynDataArr_get(DynamicDataArray *dArr, size_t index);
 
 bool DynDataArr_set(DynamicDataArray *dArr, size_t index, const void *value);
 
@@ -29,11 +29,11 @@ void DynDataArr_push(DynamicDataArray *dArr, void *value);
 
 bool DynDataArr_pop(DynamicDataArray *dArr);
 
-void *DynDataArr_first(const DynamicDataArray *dArr);
+void *DynDataArr_first(DynamicDataArray *dArr);
 
-void *DynDataArr_last(const DynamicDataArray *dArr);
+void *DynDataArr_last(DynamicDataArray *dArr);
 
-void *DynDataArr_end(const DynamicDataArray *dArr);
+void *DynDataArr_end(DynamicDataArray *dArr);
 
 bool DynDataArr_contains(const DynamicDataArray *dArr, const void *value);
 
@@ -49,7 +49,7 @@ void DynDataArr_shrinkToFit(DynamicDataArray *dArr);
 
 bool DynDataArr_resize(DynamicDataArray *dArr, size_t newCapacity);
 
-void *DynDataArr_data(const DynamicDataArray *dArr);
+void *DynDataArr_data(DynamicDataArray *dArr);
 
 size_t DynDataArr_size(const DynamicDataArray *dArr);
 

@@ -16,7 +16,7 @@ typedef struct YAZMTCore_StringU32Dictionary YAZMTCore_StringU32Dictionary;
 // Returns 0 if there are no differences.
 // Returns a positive number if a > b
 // Returns a negative number if a < b
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, int YAZMTCore_Utils_MemCmp(void *a, const void *b, size_t size));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, int YAZMTCore_Utils_MemCmp(const void *a, const void *b, size_t size));
 
 // Returns a copy of the passed in string. Caller is responsible for freeing it.
 // Returns NULL if the memory allocation fails.
@@ -73,22 +73,22 @@ RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void YAZMTCore_DynamicU32Array_shrinkToFit
 
 // Returns a pointer to the start of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_data(const YAZMTCore_DynamicU32Array *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_data(YAZMTCore_DynamicU32Array *dynArr));
 
 // Returns the number of elements in the array.
 RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, size_t YAZMTCore_DynamicU32Array_size(const YAZMTCore_DynamicU32Array *dynArr));
 
 // Returns a pointer to the first element of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_front(const YAZMTCore_DynamicU32Array *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_front(YAZMTCore_DynamicU32Array *dynArr));
 
 // Returns a pointer to the last element of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_back(const YAZMTCore_DynamicU32Array *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_back(YAZMTCore_DynamicU32Array *dynArr));
 
 // Returns a pointer to one element past the last element of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_end(const YAZMTCore_DynamicU32Array *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, u32 *YAZMTCore_DynamicU32Array_end(YAZMTCore_DynamicU32Array *dynArr));
 
 // Creates and returns a pointer to a DynamicDataArray.
 RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, YAZMTCore_DynamicDataArray *YAZMTCore_DynamicDataArray_new(size_t elementSize));
@@ -114,14 +114,14 @@ RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, bool YAZMTCore_DynamicDataArray_indexOf(co
 
 // Returns a pointer to the element at index in the array.
 // Returns NULL if the element cannot be retrieved.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_getElement(const YAZMTCore_DynamicDataArray *dynArr, size_t index));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_getElement(YAZMTCore_DynamicDataArray *dynArr, size_t index));
 
 // Copies the element in val to the element in the given index of the array.
 // Returns true if element was successfully copied in, false otherwise.
 RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, bool YAZMTCore_DynamicDataArray_setElement(YAZMTCore_DynamicDataArray *dynArr, size_t index, const void *val));
 
 // Creates a new element at the end of the array and copies the contents of val into it.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void YAZMTCore_DynamicDataArray_push(YAZMTCore_DynamicDataArray *dynArr, void *val));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void YAZMTCore_DynamicDataArray_push(YAZMTCore_DynamicDataArray *dynArr, const void *val));
 
 // Reduces the size of the array by 1.
 // Returns true if successful, false otherwise.
@@ -129,22 +129,22 @@ RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, bool YAZMTCore_DynamicDataArray_pop(YAZMTC
 
 // Returns a pointer to the array's data.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_data(const YAZMTCore_DynamicDataArray *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_data(YAZMTCore_DynamicDataArray *dynArr));
 
 // Returns the number of elements in the array.
 RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, size_t YAZMTCore_DynamicDataArray_size(const YAZMTCore_DynamicDataArray *dynArr));
 
 // Returns a pointer to the first element of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_first(const YAZMTCore_DynamicDataArray *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_first(YAZMTCore_DynamicDataArray *dynArr));
 
 // Returns a pointer to the last element of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_last(const YAZMTCore_DynamicDataArray *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_last(YAZMTCore_DynamicDataArray *dynArr));
 
 // Returns a pointer to one element past the last element of the array.
 // Returns NULL if the array is empty.
-RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_end(const YAZMTCore_DynamicDataArray *dynArr));
+RECOMP_IMPORT(YAZMT_CORELIB_MOD_NAME, void *YAZMTCore_DynamicDataArray_end(YAZMTCore_DynamicDataArray *dynArr));
 
 // Resizes DynamicDataArray's internal capacity to at least the minimum capacity passed in.
 // May cause a reallocation.

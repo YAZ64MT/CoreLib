@@ -73,7 +73,7 @@ void DynU32Arr_shrinkToFit(DynamicU32Array *dArr) {
     }
 }
 
-u32 *DynU32Arr_data(const DynamicU32Array *dArr) {
+u32 *DynU32Arr_data(DynamicU32Array *dArr) {
     if (!isValidU32Array(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -216,7 +216,7 @@ bool DynU32Arr_popAndGet(DynamicU32Array *dArr, u32 *out) {
     return false;
 }
 
-u32 *DynU32Arr_front(const DynamicU32Array *dArr) {
+u32 *DynU32Arr_front(DynamicU32Array *dArr) {
     if (!isValidU32Array(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -229,7 +229,7 @@ u32 *DynU32Arr_front(const DynamicU32Array *dArr) {
     return NULL;
 }
 
-u32 *DynU32Arr_back(const DynamicU32Array *dArr) {
+u32 *DynU32Arr_back(DynamicU32Array *dArr) {
     if (!isValidU32Array(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -242,7 +242,7 @@ u32 *DynU32Arr_back(const DynamicU32Array *dArr) {
     return &dArr->data[dArr->count - 1];
 }
 
-u32 *DynU32Arr_end(const DynamicU32Array *dArr) {
+u32 *DynU32Arr_end(DynamicU32Array *dArr) {
     if (!isValidU32Array(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;

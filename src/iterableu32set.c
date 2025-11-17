@@ -107,5 +107,8 @@ const u32 *IterU32Set_data(const IterableU32Set *s) {
         return NULL;
     }
 
-    return DynU32Arr_data(&s->values);
+    // all IterableU32Set structs created are mutable, and
+    // we are providing a read-only view of the data
+    // so we can cast away const here without UB
+    return DynU32Arr_data(&((IterableU32Set *)s)->values);
 }

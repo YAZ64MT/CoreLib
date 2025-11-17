@@ -28,11 +28,11 @@ bool DynU32Arr_pop(DynamicU32Array *dArr);
 
 bool DynU32Arr_popAndGet(DynamicU32Array *dArr, u32 *out);
 
-u32 *DynU32Arr_front(const DynamicU32Array *dArr);
+u32 *DynU32Arr_front(DynamicU32Array *dArr);
 
-u32 *DynU32Arr_back(const DynamicU32Array *dArr);
+u32 *DynU32Arr_back(DynamicU32Array *dArr);
 
-u32 *DynU32Arr_end(const DynamicU32Array *dArr);
+u32 *DynU32Arr_end(DynamicU32Array *dArr);
 
 bool DynU32Arr_contains(const DynamicU32Array *dArr, u32 value);
 
@@ -48,7 +48,7 @@ void DynU32Arr_reserve(DynamicU32Array *dArr, size_t minimumCapacity);
 
 void DynU32Arr_shrinkToFit(DynamicU32Array *dArr);
 
-u32 *DynU32Arr_data(const DynamicU32Array *dArr);
+u32 *DynU32Arr_data(DynamicU32Array *dArr);
 
 size_t DynU32Arr_size(const DynamicU32Array *dArr);
 

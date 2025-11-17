@@ -62,7 +62,7 @@ bool DynDataArr_resize(DynamicDataArray *dArr, size_t newCapacity) {
     return true;
 }
 
-void *DynDataArr_data(const DynamicDataArray *dArr) {
+void *DynDataArr_data(DynamicDataArray *dArr) {
     if (!isValidDataArray(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -156,13 +156,13 @@ void *DynDataArr_createElement(DynamicDataArray *dArr) {
     return element;
 }
 
-static void *rawGet(const DynamicDataArray *dArr, size_t index) {
+static void *rawGet(DynamicDataArray *dArr, size_t index) {
     u8 *data = dArr->data;
 
     return &data[dArr->elementSize * index];
 }
 
-void *DynDataArr_get(const DynamicDataArray *dArr, size_t index) {
+void *DynDataArr_get(DynamicDataArray *dArr, size_t index) {
     if (!isValidDataArray(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -232,7 +232,7 @@ bool DynDataArr_pop(DynamicDataArray *dArr) {
     return true;
 }
 
-void *DynDataArr_first(const DynamicDataArray *dArr) {
+void *DynDataArr_first(DynamicDataArray *dArr) {
     if (!isValidDataArray(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -245,7 +245,7 @@ void *DynDataArr_first(const DynamicDataArray *dArr) {
     return NULL;
 }
 
-void *DynDataArr_last(const DynamicDataArray *dArr) {
+void *DynDataArr_last(DynamicDataArray *dArr) {
     if (!isValidDataArray(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -258,7 +258,7 @@ void *DynDataArr_last(const DynamicDataArray *dArr) {
     return NULL;
 }
 
-void *DynDataArr_end(const DynamicDataArray *dArr) {
+void *DynDataArr_end(DynamicDataArray *dArr) {
     if (!isValidDataArray(dArr)) {
         PRINT_INVALID_PTR_ERR();
         return NULL;
@@ -292,8 +292,10 @@ bool DynDataArr_indexOf(const DynamicDataArray *dArr, const void *value, size_t 
         return false;
     }
 
+    const u8 *rawData = dArr->data;
+
     for (size_t i = 0; i < dArr->count; ++i) {
-        if (Utils_MemCmp(DynDataArr_get(dArr, i), value, dArr->elementSize) == 0) {
+        if (Utils_MemCmp(&rawData[i * dArr->elementSize], value, dArr->elementSize) == 0) {
             *out = i;
             return true;
         }
