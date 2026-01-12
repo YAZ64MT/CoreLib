@@ -317,9 +317,9 @@ bool DynDataArr_removeByIndex(DynamicDataArray *dArr, size_t index) {
 
     u8 *data = dArr->data;
 
-    for (size_t i = index + 1; i < dArr->count - 1; ++i) {
-        void *src = DynDataArr_get(dArr, i + 1);
-        void *dest = DynDataArr_get(dArr, i);
+    for (size_t i = index + 1; i < dArr->count; ++i) {
+        void *src = DynDataArr_get(dArr, i);
+        void *dest = DynDataArr_get(dArr, i - 1);
 
         if (src && dest) {
             memcpy(dest, src, dArr->elementSize);
